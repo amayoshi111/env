@@ -77,30 +77,30 @@ Windows(Git Bash)では`set.zsh`ではなく`set.bash`を使う:
 
 | ブランチ | 対象環境 |
 |---|---|
-| `master` | メインmacOS + Windows(Git Bash)の共通設定 / 同期元 |
+| `main` | メインmacOS + Windows(Git Bash)の共通設定 / 同期元 |
 | `release/office` | 業務用macOS。仕事用プロファイルを含む |
 
 ### 同期ルール
 
-- 共通設定の変更(シェル設定、NeoVim設定など)は必ずmasterで行う。`release/office`で直接変更しない
-- 同期は`master`→`release/office`の一方向のみ。masterの変更をローカルで`release/office`にmergeしてpushする
-- `release/office`の変更(仕事用プロファイルなど)はmasterへ戻さない
+- 共通設定の変更(シェル設定、NeoVim設定など)は必ずmainで行う。`release/office`で直接変更しない
+- 同期は`main`→`release/office`の一方向のみ。mainの変更をローカルで`release/office`にmergeしてpushする
+- `release/office`の変更(仕事用プロファイルなど)はmainへ戻さない
 - **`release/office`への同期にPRは不要**。ローカルで`git merge`して直接pushしてよい
-- グローバルルールとの関係: **PR必須**はこの同期マージのみ例外。**masterへの直接コミット禁止 / ブランチ作成必須 / rebase禁止**は例外ではない。直接pushしてよいのは`release/office`のみ
+- グローバルルールとの関係: **PR必須**はこの同期マージのみ例外。**デフォルトブランチへの直接コミット禁止 / ブランチ作成必須 / rebase禁止**は例外ではない。直接pushしてよいのは`release/office`のみ
 
 ### 同期時の注意
 
 - ローカルrefは古いままのことが多い。必ず`git fetch --all --prune`から始める
 - `pull`・`merge`には`--no-rebase`を明示する。`pull.rebase`の設定値に左右されずrebase禁止を担保するため
 - コンフリクトしたらそこで止める。未解決のままpushしない
-- 同期漏れの確認は`origin/release/office..origin/master`のコミット数で見る。ローカルref同士の比較はローカルが古いだけで無意味な値が出る
+- 同期漏れの確認は`origin/release/office..origin/main`のコミット数で見る。ローカルref同士の比較はローカルが古いだけで無意味な値が出る
 
 ### 同期時の注意箇所
 
 | ファイル | 方針 |
 |---|---|
 | `.claude.md` | `release/office`側で業務向けに再編されていると衝突しやすい。行単位の自動マージに任せず、見出し・項目単位で手動マージする |
-| `.zshrc` | `release/office`固有の追記(仕事用の設定)はブランチ側を残し、共通部分だけmasterを取り込む |
-| `.claude/settings.local.json` | ローカル専用設定。masterへ持ち込まない |
+| `.zshrc` | `release/office`固有の追記(仕事用の設定)はブランチ側を残し、共通部分だけmainを取り込む |
+| `.claude/settings.local.json` | ローカル専用設定。mainへ持ち込まない |
 
-`nvim/`配下はOS非依存なので、NeoVim設定の変更はmasterで行い`release/office`側では直接触らない。ブランチ側で変更すると以後の同期で衝突源になる。
+`nvim/`配下はOS非依存なので、NeoVim設定の変更はmainで行い`release/office`側では直接触らない。ブランチ側で変更すると以後の同期で衝突源になる。
