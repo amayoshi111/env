@@ -80,6 +80,8 @@ Windows(Git Bash)では`set.zsh`ではなく`set.bash`を使う:
 | `main` | メインmacOS + Windows(Git Bash)の共通設定 / 同期元 |
 | `release/office` | 業務用macOS。仕事用プロファイルを含む |
 
+`main`はGitHubのルールセット`protect-default-branch`で保護している(PR必須・承認数0、force push禁止、削除禁止、バイパスなし)。マージ済みのheadブランチはGitHub側で自動削除される。
+
 ### 同期ルール
 
 - 共通設定の変更(シェル設定、NeoVim設定など)は必ずmainで行う。`release/office`で直接変更しない
