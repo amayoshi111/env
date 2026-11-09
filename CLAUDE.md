@@ -67,7 +67,7 @@ Windows(Git Bash)では`set.zsh`ではなく`set.bash`を使う:
 
 - `set.zsh`は既存のbash/zsh設定ファイルをすべて削除する（バックアップなし）
 - テーマは全体的にgruvbox-dark-soft統一（NeoVim、Warp、Ghostty、bat）
-- Git設定で`push.default=current`、`fetch.prune=true`、`init.defaultBranch=master`
+- Git設定で`push.default=current`、`fetch.prune=true`
 - `.gitconfig`の`core.autocrlf=input`はWindows(Git Bash)向け。コミット時にCRLFをLFへ変換し、チェックアウト時は変換しない。macOSでも共有される
 - Gitエイリアス: `a`=add, `b`=branch, `c`=commit, `cm`=commit --message, `sw`=switch, `sc`=switch -c, `ps`/`pu`=push, `pl`=pull
 

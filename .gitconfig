@@ -31,7 +31,5 @@
 	ignorecase = false
 	autocrlf = input
 	fileMode = false
-[init]
-	defaultBranch = master
 [pull]
 	rebase = false
