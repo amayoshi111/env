@@ -2,6 +2,10 @@
 
 set -e
 
+# ln -s にネイティブシンボリックリンクを作らせる。未設定だとMSYS2の既定動作でコピーになる
+# 作成できない環境では ln が失敗し、set -e によりそこで止まる
+export MSYS=winsymlinks:nativestrict
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 log() {
