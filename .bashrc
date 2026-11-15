@@ -5,7 +5,7 @@
 # -----------------------------------------------------------------------------
 # Windows Symlink Configuration
 # -----------------------------------------------------------------------------
-# ln -s でネイティブシンボリックリンクを作らせる (set.bash がこれに依存)
+# ln -s でネイティブシンボリックリンクを作らせる
 # setx は毎回 "SUCCESS: ..." を stdout に出すので捨てる
 setx MSYS winsymlinks:nativestrict > /dev/null
 
@@ -22,8 +22,7 @@ HISTFILESIZE=2000
 # Git Prompt (Git Bash has git-prompt.sh built-in)
 # -----------------------------------------------------------------------------
 
-# Load git-prompt.sh
-source "/c/Program Files/Git/mingw64/share/git/completion/git-prompt.sh"
+# git-prompt.sh は Git for Windows の /etc/profile.d/git-prompt.sh が先に読み込むので、ここでは読み込まない
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
