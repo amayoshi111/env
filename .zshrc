@@ -38,8 +38,9 @@ fi
 RPROMPT="${ISROOT}"
 
 # Prompt configuration
+# %3>>%n%>> でユーザー名を先頭3文字に切り詰める
 setopt PROMPT_SUBST
-PS1='[%B%F{green}%n%f%b@%B%F{green}%m%f:%F{blue}%~%f%b] $(__git_ps1 "(%s)")'$'\n'
+PS1='[%B%F{green}%3>>%n%>>%f%b@%B%F{green}%m%f:%F{blue}%~%f%b] $(__git_ps1 "(%s)")'$'\n'
 
 # -----------------------------------------------------------------------------
 # Platform-Specific Configuration

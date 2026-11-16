@@ -31,7 +31,8 @@ GIT_PS1_SHOWUPSTREAM=auto
 GIT_PS1_SHOWCOLORHINTS=true
 
 # Prompt configuration (use PROMPT_COMMAND for git prompt)
-PROMPT_COMMAND='__git_ps1 "[\[\e[1;32m\]\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]]" "\n"'
+# ユーザー名は先頭3文字に切り詰める。Git Bash では $USER が未設定なので Windows の $USERNAME を使う
+PROMPT_COMMAND='__git_ps1 "[\[\e[1;32m\]${USERNAME:0:3}\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[34m\]\w\[\e[0m\]]" "\n"'
 
 # -----------------------------------------------------------------------------
 # Aliases
